@@ -28,9 +28,9 @@ get '/cities/:name' do
     when (100...1000)
       "No way, bro, the air is extremely dirty today in #{city} :("
     else
-      "Unfortunately with have no data for #{city} :("
+      "Unfortunately we have no data for #{city} :("
     end
   else
-    "Unfortunately with have no data for #{city} :("
+    "Unfortunately we have no data for #{city} :("
   end
 end
