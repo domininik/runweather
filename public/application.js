@@ -1,18 +1,21 @@
 (function() {
-  function httpGet(url) {
+  function httpGet(url, callback) {
     var xmlHttp = null;
     xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", url, false);
     xmlHttp.send(null);
-    return xmlHttp.responseText;
+    var response = xmlHttp.responseText;
+    callback(response);
   }
 
   var fn = function() {
     var city = geoip_city();
     var url = '/cities/' + city
-    var response = httpGet(url);
-    var div = document.getElementById('info')
-    div.innerHTML = response;
+
+    httpGet(url, function(response) {
+      var div = document.getElementById('info')
+      div.innerHTML = response;
+    });
   };
 
   if (window.addEventListener) {
