@@ -34,3 +34,8 @@ get '/cities/:name' do
     "Unfortunately we have no data for #{city} :("
   end
 end
+
+get '/about' do
+  erb :about
+end
+
